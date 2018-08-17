@@ -1,7 +1,7 @@
 
 var api = {
   root: "https://api.themoviedb.org/3",
-  token: "TODO" // TODO 0 put your api key here
+  token: "8e888fa39ec243e662e1fb738c42ae99" // TODO 0 put your api key here
 }
 
 var flicklistView = new Vue({
@@ -16,6 +16,7 @@ var flicklistView = new Vue({
 		};
 	},
 	methods: {
+		
 		discoverMovies: function () {
 			/**
 			 * Makes an AJAX request to themoviedb.org, asking for some movies
@@ -27,11 +28,18 @@ var flicklistView = new Vue({
 					.then((response) => {
 						console.log("We got a response from The Movie DB!");
 						console.log(response);
+						
+						this.browseItems = response.results
 						// TODO 2
 						// update this.browseItems, setting it equal to the movies we recieved in the response
 
 
 					});
+		},
+		addToWatchlist: function(movie) {
+	
+			this.watchlistItems.push(movie)
+		
 		},
 		// TODO 5
 		// make a method to use when a "Add to Watchlist" button is clicked
